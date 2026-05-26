@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Rekening Pembayaran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-section">
+            <div class="avatar">NU</div>
+            <h1>Nurmayasari Usman</h1>
+            <p>Silakan salin nomor rekening/e-wallet di bawah ini!</p>
+        </div>
+
+        <div class="grid-layout">
+            
+            <div class="card">
+                <div>
+                    <span class="bank-logo">BANK BRI</span>
+                    <p class="number">025901087762503</p>
+                    <p class="name">NURMAYASARI USMAN</p>
+                </div>
+                <button class="btn-copy" onclick="copy('025901087762503', 'BANK BRI')">Salin Nomor</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="bank-logo">SEABANK</span>
+                    <p class="number">901641785010</p>
+                    <p class="name">NURMAYASARI USMAN</p>
+                </div>
+                <button class="btn-copy" onclick="copy('901641785010', 'SEABANK')">Salin Nomor</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="bank-logo">DANA</span>
+                    <p class="number">082246038126</p>
+                    <p class="name">NURMAYASARI USMAN</p>
+                </div>
+                <button class="btn-copy" onclick="copy('082246038126', 'DANA')">Salin Nomor</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="bank-logo">GOPAY</span>
+                    <p class="number">082246038126</p>
+                    <p class="name">NURMAYASARI USMAN</p>
+                </div>
+                <button class="btn-copy" onclick="copy('082246038126', 'GOPAY')">Salin Nomor</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="bank-logo">SHOPEEPAY</span>
+                    <p class="number">082246038126</p>
+                    <p class="name">nmayaaaa</p>
+                </div>
+                <button class="btn-copy" onclick="copy('082246038126', 'SHOPEEPAY')">Salin Nomor</button>
+            </div>
+
+        </div>
+
+        <div class="footer-text">
+            <p>Terima kasih, tolong konfirmasi ulang untuk memastikan transaksi anda berhasil</p>
+            <div class="signature">- NURMAYASARI USMAN</div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Berhasil disalin!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
