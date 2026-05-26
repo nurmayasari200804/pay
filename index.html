@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Rekening & E-Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-img">NU</div>
+        <h2>NURMAYASARI USMAN</h2>
+        <p class="subtitle">Silakan salin nomor rekening/e-wallet di bawah ini</p>
+
+        <div class="card">
+            <div class="info-bank">
+                <div class="bank-name">BRI</div>
+                <div class="acc-number">025901087762503</div>
+                <div class="acc-name">a.n. NURMAYASARI USMAN</div>
+            </div>
+            <button class="btn-copy" onclick="copyToClipboard('025901087762503', 'BRI')">Salin</button>
+        </div>
+
+        <div class="card">
+            <div class="info-bank">
+                <div class="bank-name">SEABANK</div>
+                <div class="acc-number">901641785010</div>
+                <div class="acc-name">a.n. NURMAYASARI USMAN</div>
+            </div>
+            <button class="btn-copy" onclick="copyToClipboard('901641785010', 'SEABANK')">Salin</button>
+        </div>
+
+        <div class="card">
+            <div class="info-bank">
+                <div class="bank-name">DANA / GOPAY</div>
+                <div class="acc-number">082246038126</div>
+                <div class="acc-name">a.n. NURMAYASARI USMAN</div>
+            </div>
+            <button class="btn-copy" onclick="copyToClipboard('082246038126', 'DANA/GOPAY')">Salin</button>
+        </div>
+
+        <div class="card">
+            <div class="info-bank">
+                <div class="bank-name">SHOPEEPAY</div>
+                <div class="acc-number">082246038126</div>
+                <div class="acc-name">Username: nmayaaaa.</div>
+            </div>
+            <button class="btn-copy" onclick="copyToClipboard('082246038126', 'ShopeePay')">Salin</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
