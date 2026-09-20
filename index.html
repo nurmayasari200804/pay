@@ -3,76 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informasi Rekening Pembayaran</title>
+    <title>Informasi Rekening dan E-Wallet- Nurmayasari Usman</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Ambient Glow Background Particles -->
+    <div class="ambient-particle particle-1"></div>
+    <div class="ambient-particle particle-2"></div>
+
+    <!-- Dark Mode Toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Beralih Tema">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
     <div class="container">
         
+        <!-- Header Section (Langsung Tulisan Nama) -->
         <div class="header-section">
-            <div class="avatar">NU</div>
-            <h1>Nurmayasari Usman</h1>
-            <p>Silakan salin nomor rekening/e-wallet di bawah ini!</p>
+            <h1>Informasi Rekening dan E-Wallet</h1>
+            <p>Silakan salin salah satu nomor rekening atau e-wallet di bawah ini.</p>
+
+            <!-- Search Bar & Filter Buttons -->
+            <div class="filter-wrapper">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Cari bank atau e-wallet..." onkeyup="filterCards()">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterCategory('all', this)">Semua</button>
+                    <button class="filter-btn" onclick="filterCategory('bank', this)">Bank</button>
+                    <button class="filter-btn" onclick="filterCategory('ewallet', this)">E-Wallet</button>
+                </div>
+            </div>
         </div>
 
-        <div class="grid-layout">
+        <!-- Grid Cards Layout -->
+        <div class="grid-layout" id="cardGrid">
             
-            <div class="card">
-                <div>
-                    <span class="bank-logo">BANK BRI</span>
-                    <p class="number">025901087762503</p>
-                    <p class="name">NURMAYASARI USMAN</p>
+            <!-- BANK BRI -->
+            <div class="card" data-category="bank" data-name="bank bri bri">
+                <div class="card-chip"></div>
+                <div class="card-content">
+                    <div class="bank-header">
+                        <span class="bank-logo"><i class="fa-solid fa-building-columns"></i> BANK BRI</span>
+                        <span class="card-type">BANK</span>
+                    </div>
+                    <div class="account-details">
+                        <p class="number">0259 0108 7762 503</p>
+                        <p class="name">NURMAYASARI USMAN</p>
+                    </div>
                 </div>
-                <button class="btn-copy" onclick="copy('025901087762503', 'BANK BRI')">Salin Nomor</button>
+                <div class="card-actions">
+                    <button class="btn-copy" onclick="copy('025901087762503', 'BANK BRI', this)">
+                        <i class="fa-regular fa-copy"></i> Salin Nomor
+                    </button>
+                </div>
             </div>
 
-            <div class="card">
-                <div>
-                    <span class="bank-logo">SEABANK</span>
-                    <p class="number">901641785010</p>
-                    <p class="name">NURMAYASARI USMAN</p>
+            <!-- SEABANK -->
+            <div class="card" data-category="bank" data-name="seabank sea bank">
+                <div class="card-chip"></div>
+                <div class="card-content">
+                    <div class="bank-header">
+                        <span class="bank-logo"><i class="fa-solid fa-piggy-bank"></i> SEABANK</span>
+                        <span class="card-type">BANK</span>
+                    </div>
+                    <div class="account-details">
+                        <p class="number">9016 4178 5010</p>
+                        <p class="name">NURMAYASARI USMAN</p>
+                    </div>
                 </div>
-                <button class="btn-copy" onclick="copy('901641785010', 'SEABANK')">Salin Nomor</button>
+                <div class="card-actions">
+                    <button class="btn-copy" onclick="copy('901641785010', 'SEABANK', this)">
+                        <i class="fa-regular fa-copy"></i> Salin Nomor
+                    </button>
+                </div>
             </div>
 
-            <div class="card">
-                <div>
-                    <span class="bank-logo">DANA</span>
-                    <p class="number">082246038126</p>
-                    <p class="name">NURMAYASARI USMAN</p>
+            <!-- DANA -->
+            <div class="card" data-category="ewallet" data-name="dana e-wallet">
+                <div class="card-chip"></div>
+                <div class="card-content">
+                    <div class="bank-header">
+                        <span class="bank-logo"><i class="fa-solid fa-wallet"></i> DANA</span>
+                        <span class="card-type">E-WALLET</span>
+                    </div>
+                    <div class="account-details">
+                        <p class="number">0822 4603 8126</p>
+                        <p class="name">NURMAYASARI USMAN</p>
+                    </div>
                 </div>
-                <button class="btn-copy" onclick="copy('082246038126', 'DANA')">Salin Nomor</button>
+                <div class="card-actions">
+                    <button class="btn-copy" onclick="copy('082246038126', 'DANA', this)">
+                        <i class="fa-regular fa-copy"></i> Salin Nomor
+                    </button>
+                </div>
             </div>
 
-            <div class="card">
-                <div>
-                    <span class="bank-logo">GOPAY</span>
-                    <p class="number">082246038126</p>
-                    <p class="name">NURMAYASARI USMAN</p>
+            <!-- GOPAY -->
+            <div class="card" data-category="ewallet" data-name="gopay gojek e-wallet">
+                <div class="card-chip"></div>
+                <div class="card-content">
+                    <div class="bank-header">
+                        <span class="bank-logo"><i class="fa-solid fa-mobile-screen-button"></i> GOPAY</span>
+                        <span class="card-type">E-WALLET</span>
+                    </div>
+                    <div class="account-details">
+                        <p class="number">0822 4603 8126</p>
+                        <p class="name">NURMAYASARI USMAN</p>
+                    </div>
                 </div>
-                <button class="btn-copy" onclick="copy('082246038126', 'GOPAY')">Salin Nomor</button>
+                <div class="card-actions">
+                    <button class="btn-copy" onclick="copy('082246038126', 'GOPAY', this)">
+                        <i class="fa-regular fa-copy"></i> Salin Nomor
+                    </button>
+                </div>
             </div>
 
-            <div class="card">
-                <div>
-                    <span class="bank-logo">SHOPEEPAY</span>
-                    <p class="number">082246038126</p>
-                    <p class="name">nmayaaaa</p>
+            <!-- SHOPEEPAY -->
+            <div class="card" data-category="ewallet" data-name="shopeepay shopee e-wallet">
+                <div class="card-chip"></div>
+                <div class="card-content">
+                    <div class="bank-header">
+                        <span class="bank-logo"><i class="fa-solid fa-bag-shopping"></i> SHOPEEPAY</span>
+                        <span class="card-type">E-WALLET</span>
+                    </div>
+                    <div class="account-details">
+                        <p class="number">0822 4603 8126</p>
+                        <p class="name">nmayaaaa</p>
+                    </div>
                 </div>
-                <button class="btn-copy" onclick="copy('082246038126', 'SHOPEEPAY')">Salin Nomor</button>
+                <div class="card-actions">
+                    <button class="btn-copy" onclick="copy('082246038126', 'SHOPEEPAY', this)">
+                        <i class="fa-regular fa-copy"></i> Salin Nomor
+                    </button>
+                </div>
             </div>
 
         </div>
 
+        <!-- Footer Section -->
         <div class="footer-text">
-            <p>mohon konfirmasi ulang untuk memastikan transaksi anda berhasil.</p>
-            <p>terima kasih!</p>
-            <div class="signature">NURMAYASARI USMAN</div>
+            <p>Mohon konfirmasi ulang setelah melakukan pembayaran.</p>
+            <p class="sub-text">Terima kasih!</p>
+            
+            <a href="https://wa.me/6287863013846?text=saya sudah tf, tolong dicek. terima kasih, mayaa." target="_blank" class="btn-wa">
+                <i class="fa-brands fa-whatsapp"></i> Konfirmasi via WhatsApp
+            </a>
+
+            <div class="signature">Nurmayasari Usman</div>
         </div>
+
     </div>
 
-    <div id="toast" class="toast">Berhasil disalin!</div>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Berhasil disalin!</span>
+    </div>
 
     <script src="script.js"></script>
 </body>
