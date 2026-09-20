@@ -4,7 +4,7 @@ import os
 
 # Konfigurasi Halaman Streamlit
 st.set_page_config(
-    page_title="Informasi Rekening Pembayaran - Nurmayasari Usman",
+    page_title="Informasi Rekening dan E-Wallet",
     page_icon="💳",
     layout="wide",
     initial_sidebar_state="collapsed"
