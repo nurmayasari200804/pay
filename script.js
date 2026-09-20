@@ -1,4 +1,3 @@
-// Copy to Clipboard
 function copy(text, provider, buttonElement) {
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
@@ -38,7 +37,6 @@ function handleSuccess(provider, buttonElement) {
     }
 }
 
-// Toast System
 let toastTimeout;
 function showToast(message) {
     const toast = document.getElementById('toast');
@@ -51,7 +49,6 @@ function showToast(message) {
     }, 3000);
 }
 
-// Search Filter
 function filterCards() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const cards = document.querySelectorAll('.card');
@@ -65,7 +62,6 @@ function filterCards() {
     });
 }
 
-// Category Filter
 function filterCategory(category, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -80,7 +76,6 @@ function filterCategory(category, btn) {
     });
 }
 
-// Dark Mode Toggle
 const themeToggleBtn = document.getElementById('themeToggle');
 const themeIcon = themeToggleBtn.querySelector('i');
 
