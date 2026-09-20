@@ -1,42 +1,63 @@
 import streamlit as st
+import streamlit.components.v1 as components
+import os
 
-st.set_page_config(page_title="Informasi Rekening - Nurmayasari Usman", page_icon="💳", layout="wide")
+# Konfigurasi Halaman Streamlit
+st.set_page_config(
+    page_title="Informasi Rekening Pembayaran - Nurmayasari Usman",
+    page_icon="💳",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-# Reset default margin Streamlit agar komponen HTML menyatu sempurna
+# Menghilangkan padding & header bawaan Streamlit agar tampilan penuh (full screen)
 st.markdown("""
     <style>
-    [data-testid="stAppViewContainer"] {
-        padding-top: 0rem;
-        background-color: #fffbf2;
-    }
-    .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        max-width: 100% !important;
-    }
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    #MainMenu {visibility: hidden;}
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .block-container {
+            padding-top: 0rem !important;
+            padding-bottom: 0rem !important;
+            padding-left: 0rem !important;
+            padding-right: 0rem !important;
+        }
+        iframe {
+            width: 100% !important;
+            border: none !important;
+        }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-def load_file(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        return f.read()
+# Fungsi untuk membaca file
+def read_file(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    return ""
 
-try:
-    html_code = load_file("index.html")
-    css_code = load_file("style.css")
-    js_code = load_file("script.js")
+# Membaca HTML, CSS, dan JS
+html_content = read_file("index.html")
+css_content = read_file("style.css")
+js_content = read_file("script.js")
 
-    full_code = f"""
-    <style>{css_code}</style>
-    {html_code}
-    <script>{js_code}</script>
-    """
+# Menggabungkan CSS & JS langsung ke dalam HTML agar dapat di-render dengan sempurna
+full_html = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        {css_content}
+    </style>
+</head>
+<body>
+    {html_content.replace('<link rel="stylesheet" href="style.css">', '').replace('<script src="script.js"></script>', '')}
+    <script>
+        {js_content}
+    </script>
+</body>
+</html>
+"""
 
-    # Mengatur tinggi wadah agar pas tanpa scroll ganda di Streamlit Cloud
-    st.components.v1.html(full_code, height=1100, scrolling=True)
-
-except Exception as e:
-    st.error(f"Gagal memuat komponen: {e}")
+# Render tampilan web di Streamlit
+components.html(full_html, height=1000, scrolling=True)
